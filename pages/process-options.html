@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Process Section — 4 Options</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #ffffff;
+      --off-white: #fafaf8;
+      --warm: #f4f1ec;
+      --black: #141414;
+      --dark: #252525;
+      --mid: #5c5c5c;
+      --light: #e5e5e5;
+      --green: #3a5c45;
+      --green-dark: #2a4333;
+      --green-light: #eaf0eb;
+      --border: rgba(20,20,20,0.09);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; font-weight: 300; background: #ebebeb; color: var(--dark); -webkit-font-smoothing: antialiased; }
+
+    .label {
+      background: var(--black); color: white;
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 14px 52px; font-family: 'Inter', sans-serif;
+    }
+
+    /* ── SHARED ── */
+    .eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(20,20,20,0.55); margin-bottom: 14px; }
+    .section-title { font-family: 'Lora', serif; font-size: clamp(32px, 3.2vw, 48px); font-weight: 500; line-height: 1.1; color: var(--black); margin-bottom: 52px; }
+    .section-title em { font-style: italic; color: var(--green); font-weight: 400; }
+
+    /* ══════════════════════════════════════════
+       OPTION A — Connected steps with a line
+    ══════════════════════════════════════════ */
+    .option-a { background: var(--warm); padding: 80px 52px; }
+    .option-a-steps { display: grid; grid-template-columns: repeat(3,1fr); position: relative; margin-top: 16px; }
+    .option-a-steps::before {
+      content: ''; position: absolute;
+      top: 20px; left: calc(16.66% + 0px); right: calc(16.66% + 0px);
+      height: 1px; background: var(--green-light);
+    }
+    .option-a-step { padding: 0 32px 0 0; }
+    .option-a-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--green); color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 500; margin-bottom: 24px;
+      position: relative; z-index: 1;
+      font-family: 'Inter', sans-serif; letter-spacing: 0;
+    }
+    .option-a-title { font-family: 'Lora', serif; font-size: 19px; font-weight: 500; color: var(--black); margin-bottom: 12px; }
+    .option-a-text { font-size: 15px; line-height: 1.8; color: var(--mid); }
+
+    /* ══════════════════════════════════════════
+       OPTION B — Full width rows
+    ══════════════════════════════════════════ */
+    .option-b { background: var(--white); padding: 80px 52px; }
+    .option-b-rows { display: flex; flex-direction: column; }
+    .option-b-row {
+      display: grid; grid-template-columns: 80px 1fr 2fr;
+      gap: 40px; align-items: start;
+      padding: 40px 0; border-bottom: 1px solid var(--border);
+    }
+    .option-b-row:first-child { border-top: 1px solid var(--border); }
+    .option-b-num {
+      font-family: 'Lora', serif; font-size: 42px;
+      font-weight: 400; color: var(--green-light);
+      line-height: 1; padding-top: 4px;
+      color: var(--light);
+    }
+    .option-b-title { font-family: 'Lora', serif; font-size: 22px; font-weight: 500; color: var(--black); padding-top: 6px; }
+    .option-b-text { font-size: 15px; line-height: 1.8; color: var(--mid); padding-top: 8px; }
+
+    /* ══════════════════════════════════════════
+       OPTION C — Clean numbered list, no cards
+    ══════════════════════════════════════════ */
+    .option-c { background: var(--warm); padding: 80px 52px; }
+    .option-c-list { display: flex; flex-direction: column; max-width: 720px; }
+    .option-c-item {
+      display: grid; grid-template-columns: 48px 1fr;
+      gap: 24px; padding: 32px 0; border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .option-c-item:first-child { border-top: 1px solid var(--border); }
+    .option-c-num {
+      font-size: 11px; letter-spacing: 0.14em; color: var(--green);
+      font-weight: 500; padding-top: 4px; font-family: 'Inter', sans-serif;
+    }
+    .option-c-content {}
+    .option-c-title { font-family: 'Lora', serif; font-size: 20px; font-weight: 500; color: var(--black); margin-bottom: 10px; }
+    .option-c-text { font-size: 15px; line-height: 1.8; color: var(--mid); }
+
+    /* ══════════════════════════════════════════
+       OPTION D — Big hero numbers
+    ══════════════════════════════════════════ */
+    .option-d { background: var(--white); padding: 80px 52px; }
+    .option-d-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+    .option-d-card { background: var(--off-white); padding: 40px 36px; position: relative; overflow: hidden; }
+    .option-d-card:first-child { background: var(--green); }
+    .option-d-bg-num {
+      position: absolute; right: -10px; bottom: -20px;
+      font-family: 'Lora', serif; font-size: 180px;
+      font-weight: 600; line-height: 1;
+      color: rgba(20,20,20,0.05); pointer-events: none; user-select: none;
+    }
+    .option-d-card:first-child .option-d-bg-num { color: rgba(255,255,255,0.08); }
+    .option-d-step-num {
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--mid); margin-bottom: 40px; font-family: 'Inter', sans-serif;
+    }
+    .option-d-card:first-child .option-d-step-num { color: rgba(255,255,255,0.55); }
+    .option-d-title { font-family: 'Lora', serif; font-size: 22px; font-weight: 500; color: var(--black); margin-bottom: 14px; position: relative; }
+    .option-d-card:first-child .option-d-title { color: white; }
+    .option-d-text { font-size: 15px; line-height: 1.8; color: var(--mid); position: relative; }
+    .option-d-card:first-child .option-d-text { color: rgba(255,255,255,0.75); }
+
+  </style>
+</head>
+<body>
+
+<!-- ── OPTION A ── -->
+<div class="label">Option A — Connected steps</div>
+<div class="option-a">
+  <div class="eyebrow">How we work</div>
+  <h2 class="section-title">What to expect<br><em>when you work with me.</em></h2>
+  <div class="option-a-steps">
+    <div class="option-a-step">
+      <div class="option-a-num">1</div>
+      <div class="option-a-title">A free 20-minute call</div>
+      <div class="option-a-text">We talk through what's going on, what you're hoping for, and whether working together makes sense. No pressure, no pitch.</div>
+    </div>
+    <div class="option-a-step">
+      <div class="option-a-num">2</div>
+      <div class="option-a-title">We map your starting point</div>
+      <div class="option-a-text">The first session goes deeper. We identify the patterns, the blocks, and what your nervous system is actually doing underneath the surface.</div>
+    </div>
+    <div class="option-a-step">
+      <div class="option-a-num">3</div>
+      <div class="option-a-title">You leave with real tools</div>
+      <div class="option-a-text">Every session ends with something concrete to practice. Not insight to sit with. Something you can actually use before the next time we meet.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OPTION B ── -->
+<div class="label">Option B — Full width rows</div>
+<div class="option-b">
+  <div class="eyebrow">How we work</div>
+  <h2 class="section-title">What to expect<br><em>when you work with me.</em></h2>
+  <div class="option-b-rows">
+    <div class="option-b-row">
+      <div class="option-b-num">1</div>
+      <div class="option-b-title">A free 20-minute call</div>
+      <div class="option-b-text">We talk through what's going on, what you're hoping for, and whether working together makes sense. No pressure, no pitch.</div>
+    </div>
+    <div class="option-b-row">
+      <div class="option-b-num">2</div>
+      <div class="option-b-title">We map your starting point</div>
+      <div class="option-b-text">The first session goes deeper. We identify the patterns, the blocks, and what your nervous system is actually doing underneath the surface.</div>
+    </div>
+    <div class="option-b-row">
+      <div class="option-b-num">3</div>
+      <div class="option-b-title">You leave with real tools</div>
+      <div class="option-b-text">Every session ends with something concrete to practice. Not insight to sit with. Something you can actually use before the next time we meet.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OPTION C ── -->
+<div class="label">Option C — Clean list, no cards</div>
+<div class="option-c">
+  <div class="eyebrow">How we work</div>
+  <h2 class="section-title">What to expect<br><em>when you work with me.</em></h2>
+  <div class="option-c-list">
+    <div class="option-c-item">
+      <div class="option-c-num">01</div>
+      <div class="option-c-content">
+        <div class="option-c-title">A free 20-minute call</div>
+        <div class="option-c-text">We talk through what's going on, what you're hoping for, and whether working together makes sense. No pressure, no pitch.</div>
+      </div>
+    </div>
+    <div class="option-c-item">
+      <div class="option-c-num">02</div>
+      <div class="option-c-content">
+        <div class="option-c-title">We map your starting point</div>
+        <div class="option-c-text">The first session goes deeper. We identify the patterns, the blocks, and what your nervous system is actually doing underneath the surface.</div>
+      </div>
+    </div>
+    <div class="option-c-item">
+      <div class="option-c-num">03</div>
+      <div class="option-c-content">
+        <div class="option-c-title">You leave with real tools</div>
+        <div class="option-c-text">Every session ends with something concrete to practice. Not insight to sit with. Something you can actually use before the next time we meet.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OPTION D ── -->
+<div class="label">Option D — Big hero numbers</div>
+<div class="option-d">
+  <div class="eyebrow">How we work</div>
+  <h2 class="section-title">What to expect<br><em>when you work with me.</em></h2>
+  <div class="option-d-cards">
+    <div class="option-d-card">
+      <div class="option-d-bg-num">1</div>
+      <div class="option-d-step-num">Step 01</div>
+      <div class="option-d-title">A free 20-minute call</div>
+      <div class="option-d-text">We talk through what's going on, what you're hoping for, and whether working together makes sense. No pressure, no pitch.</div>
+    </div>
+    <div class="option-d-card">
+      <div class="option-d-bg-num">2</div>
+      <div class="option-d-step-num">Step 02</div>
+      <div class="option-d-title">We map your starting point</div>
+      <div class="option-d-text">The first session goes deeper. We identify the patterns, the blocks, and what your nervous system is actually doing underneath the surface.</div>
+    </div>
+    <div class="option-d-card">
+      <div class="option-d-bg-num">3</div>
+      <div class="option-d-step-num">Step 03</div>
+      <div class="option-d-title">You leave with real tools</div>
+      <div class="option-d-text">Every session ends with something concrete to practice. Not insight to sit with. Something you can actually use before the next time we meet.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
