@@ -491,13 +491,15 @@ footer { background: var(--black); padding: 52px 7vw; }
 
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-left { padding: 52px 24px 48px; order: 2; }
-  .hero-right { height: 65vw; min-height: 300px; order: 1; }
+  .hero-right { height: 80vw; min-height: 340px; order: 1; }
+  .hero-right img { object-position: center 15%; }
 
   .cred-bar { padding: 18px 24px; gap: 20px; justify-content: flex-start; }
 
   .for-inner { grid-template-columns: 1fr; gap: 40px; padding: 64px 6vw; }
   .about-split { grid-template-columns: 1fr; min-height: auto; }
-  .about-split-photo { height: 75vw; min-height: 300px; order: -1; }
+  .about-split-photo { height: 90vw; min-height: 340px; order: -1; }
+  .about-split-photo img { object-position: center 20%; }
   .about-split-text { padding: 56px 6vw; }
   .approach-split { grid-template-columns: 1fr; min-height: auto; }
   .approach-text { padding: 56px 6vw; }
